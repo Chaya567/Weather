@@ -29,4 +29,3 @@ function displayWeather(weatherData) {
   }
 }
 
-//export { getWeather, displayWeather };
