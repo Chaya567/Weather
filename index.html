@@ -4,97 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <style>
-        body {
-            background-image: url('./ABC.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            font-family: 'Montserrat', sans-serif;
-            color: #ffffff;
-            filter: brightness(70%);
-        }
-
-        .container {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        h1 {
-            color: #00ced1;
-        }
-
-        label {
-            color: #4682b4;
-            font-size: 20px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            width: 200px;
-            border: 2px solid #00ced1;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.3); 
-            color: #fff;
-        }
-
-        button[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4682b4;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #00ced1;
-        }
-
-        #weatherInfo {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
-        }
-
-        p {
-            margin: 10px 0;
-            color: #000; 
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body >
+<body>
     <div class="container">
-        <h1>Weather App</h1>
+        <h1 class="heading">Weather App</h1>
         
         <form id="weatherForm">
-          <label for="cityName">City Name:</label>
-          <input type="text" id="cityName" name="cityName" required>
-          <button type="submit">Get Weather</button>
+          <label for="cityName" class="label">City Name:</label>
+          <input type="text" id="cityName" name="cityName" required class="input-text">
+          <button type="submit" class="submit-btn">Get Weather</button>
         </form>
-        <div id="weatherInfo"></div>
+        <div id="weatherInfo" class="weather-info"></div>
     </div>
 
     <script src="weatherService.js"></script>
-    <script>
-        document.getElementById("weatherForm").addEventListener("submit", async function(event) {
-          event.preventDefault();
-          const cityName = document.getElementById("cityName").value.trim();
-          try {
-            const weatherData = await getWeather(cityName);
-            displayWeather(weatherData);
-          } catch (error) {
-            console.error(error);
-            alert('Failed to retrieve weather data. Please try again later.');
-          }
-        });
-    </script>
 </body>
 </html>

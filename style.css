@@ -1,0 +1,71 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #272121;
+    filter: brightness(70%);
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.heading {
+    color: #00ced1;
+}
+
+.label {
+    color: #4682b4;
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.input-text {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 2px solid #00ced1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: rgba(241, 241, 241, 0.89); 
+    color: #000; 
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4682b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #00ced1;
+}
+
+.weather-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.849);
+    border-radius: 5px;
+}
+
+.container::before {
+    content: "";
+    background-image: inherit;
+    filter: blur(5px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

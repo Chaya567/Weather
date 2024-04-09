@@ -110,12 +110,6 @@ dist
 # Serverless directories
 .serverless/
 
-# FuseBox cache
-<<<<<<< HEAD
-.fuse
-=======
-.fusebox/
-
 # DynamoDB Local files
 .dynamodb/
 
@@ -131,4 +125,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
->>>>>>> 9a562996237b3923c32c840b01ce77c5907644fe
+
+# FuseBox cache
+.fusebox/
