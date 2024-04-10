@@ -1,7 +1,7 @@
 const API_KEY = 'b71ca2424f7ca2f981190ce292e41ccd';
 const API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
-async function getWeather(cityName) {
+const getWeather = async (cityName) => {
   const url = `${API_BASE_URL}?q=${cityName}&appid=${API_KEY}&units=metric`;
   
   try {
@@ -16,18 +16,27 @@ async function getWeather(cityName) {
   } catch (error) {
     throw new Error('Failed to fetch weather data');
   }
-}
+};
 
-function displayWeather(weatherData) {
+const displayWeather = (weatherData) => {
   const weatherInfo = document.getElementById('weatherInfo');
-  if (weatherInfo !== null) {
-    weatherInfo.innerHTML = `
-        <p>Temperature: ${weatherData.temperature}°C</p>
-        <p>Humidity: ${weatherData.humidity}%</p>
-        <p>Wind Speed: ${weatherData.windSpeed} m/s</p>
-    `;
+  if (weatherInfo) {
+    weatherInfo.innerHTML = '';
+
+    const temperatureElement = document.createElement('p');
+    temperatureElement.textContent = `Temperature: ${weatherData.temperature}°C`;
+
+    const humidityElement = document.createElement('p');
+    humidityElement.textContent = `Humidity: ${weatherData.humidity}%`;
+
+    const windSpeedElement = document.createElement('p');
+    windSpeedElement.textContent = `Wind Speed: ${weatherData.windSpeed} m/s`;
+
+    weatherInfo.appendChild(temperatureElement);
+    weatherInfo.appendChild(humidityElement);
+    weatherInfo.appendChild(windSpeedElement);
   }
-}
+};
 
 document.getElementById("weatherForm").addEventListener("submit", async (event) => {
   event.preventDefault();
