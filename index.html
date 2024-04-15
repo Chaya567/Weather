@@ -10,12 +10,10 @@
     <div class="container">
         <h1 class="heading">Weather App</h1>
         
-        <form id="weatherForm">
-          <label for="cityName" class="label">City Name:</label>
-          <input type="text" id="cityName" name="cityName" required class="input-text">
-          <button type="submit" class="submit-btn">Get Weather</button>
-        </form>
-        <div id="weatherInfo" class="weather-info"></div>
+        <input type="text" id="cityName" name="cityName" required class="input-text" placeholder="Enter city name">
+        <div id="weatherInfo" class="weather-info">
+            <div id="temperature" class="temperature"></div>
+        </div>
     </div>
 
     <script src="src/weatherService.js"></script>

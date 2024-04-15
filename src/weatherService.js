@@ -9,8 +9,7 @@ const getWeather = async (cityName) => {
     const data = await response.json();
     const weatherData = {
       temperature: data.main.temp,
-      humidity: data.main.humidity,
-      windSpeed: data.wind.speed
+      city: data.name // שם העיר מתשובת ה- API
     };
     return weatherData;
   } catch (error) {
@@ -23,29 +22,25 @@ const displayWeather = (weatherData) => {
   if (weatherInfo) {
     weatherInfo.innerHTML = '';
 
-    const temperatureElement = document.createElement('p');
-    temperatureElement.textContent = `Temperature: ${weatherData.temperature}°C`;
+    const weatherElement = document.createElement('p');
+    weatherElement.textContent = `${weatherData.city}\n${weatherData.temperature}°C`; 
 
-    const humidityElement = document.createElement('p');
-    humidityElement.textContent = `Humidity: ${weatherData.humidity}%`;
-
-    const windSpeedElement = document.createElement('p');
-    windSpeedElement.textContent = `Wind Speed: ${weatherData.windSpeed} m/s`;
-
-    weatherInfo.appendChild(temperatureElement);
-    weatherInfo.appendChild(humidityElement);
-    weatherInfo.appendChild(windSpeedElement);
+    weatherInfo.appendChild(weatherElement);
   }
 };
 
-document.getElementById("weatherForm").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const cityName = document.getElementById("cityName").value.trim();
-  try {
-    const weatherData = await getWeather(cityName);
-    displayWeather(weatherData);
-  } catch (error) {
-    console.error(error);
-    alert('Failed to retrieve weather data. Please try again later.');
-  }
+document.getElementById('cityName').addEventListener('input', async function() {
+    let cityName = this.value.trim();
+    if (cityName !== '') {
+        try {
+            const weatherData = await getWeather(cityName);
+            displayWeather(weatherData);
+        } catch (error) {
+            console.error(error);
+            // alert('Failed to retrieve weather data. Please try again later.');
+        }
+    } else {
+        document.getElementById('weatherInfo').innerHTML = '';
+    }
 });
+              
